@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="options">
+        <label for="countries">
+            Country: 
+            <select id="countries"></select>
+        </label>
+        <label for="searchGame">
+            Game:
+            <input id="searchGame" type="text">
+        </label>
+        <div id="searchDiv"></div>
+        <label>
+            Category:
+            <select id="categories"></select>
+        </label>
+    </div>
+    <br/>
+    <button id="fetchSRC" onclick="doThings()" disabled>Search</button>
+    <table id="response">
+        <tr>
+            <th>Rankings</th>
+            <th>Player</th>
+            <th>Time</th>
+            <th>Global Rankings</th>
+        </tr>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

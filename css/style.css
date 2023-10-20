@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Fredoka';
+    margin-bottom: 5vh;
+    font-size: 1.5em;
+}
+
+#response {
+    margin: auto;
+    width: max-content;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-spacing: 0px;
+    border: solid 1px white;
+    padding: 1vh;
+    text-align: center;    
+}
+
+button {
+    background-color: black;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    border: solid 2px red;
+    padding: 3vh;
+    border-radius: 100vh;
+    margin: 3vh;
+}
+
+button:disabled {
+    color: #555;
+}
+
+button:disabled:hover {
+    background-color: black;
+}
+
+button:hover {
+    background-color: #222;
+}
+
+#searchGame {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    font-family: inherit;
+    border: solid white 1px;
+    padding: 1vw;
+}
+
+#searchDiv {
+    position: absolute;
+    top: calc(5vw + 2em + 4px);
+    left: calc(35vw - 1px);
+    width: 30vw;
+    font-size: 0.8em;
+}
+
+.game {
+    padding: 1vh;
+    background-color: black;
+}
+
+.game:hover {
+    background-color: #222;
+    cursor: pointer;
+}
+
+select {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: inherit;
+    font-family: inherit;
+    border: solid white 1px;
+    padding: 1vw;
+    font-size: 0.8em;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30vw;
+    gap: 1vh;
+}
+
+#options {
+    margin-top: 3vh;
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    height: max-content;
+}
