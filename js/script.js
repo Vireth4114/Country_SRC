@@ -16,6 +16,7 @@ for (let i = 65; i <= 90; i++) {
         }
     }
 }
+COUNTRIES.innerHTML += `<option value="ca/qc">Québec</option>`;
 
 SEARCH_GAME.addEventListener("input", function() {
     let searchReq = `https://www.speedrun.com/api/v1/games?name=${SEARCH_GAME.value}&max=10`;
