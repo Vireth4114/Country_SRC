@@ -92,6 +92,7 @@ function displayThings(json) {
             if (allRunners[playerID][1] == country) {
                 hasRunners = true;
                 let place = runs["place"];
+                let date = runs["run"]["date"];
                 let name = allRunners[playerID][0];
                 let time = new Date(1000 * runs["run"]["times"]["primary_t"]).toISOString().substring(11, 23);
                 
@@ -101,13 +102,13 @@ function displayThings(json) {
                 } else {
                     shift++;
                 }
-                RESPONSE_DIV.innerHTML += `<tr><td>${ranking}</td><td>${name}</td><td>${time}</td><td>${place}</td></tr>`
+                RESPONSE_DIV.innerHTML += `<tr><td>${ranking}</td><td>${name}</td><td>${time}</td><td>${place}</td><td>${date}</td></tr>`
                 previousPlace = place;
             }
         }
     });
     if (!hasRunners) {
-        RESPONSE_DIV.innerHTML += "<tr><td colspan='4'>NONE :(</td></tr>";
+        RESPONSE_DIV.innerHTML += "<tr><td colspan='5'>NONE :(</td></tr>";
     }
 }
 
@@ -117,8 +118,9 @@ function doThings() {
                                   <th>Player</th>\
                                   <th>Time</th>\
                                   <th>Global Rankings</th>\
+                                  <th>Date</th>\
                               </tr>\
-                              <tr><td colspan=\"4\">Loading...</td></tr>";
+                              <tr><td colspan=\"5\">Loading...</td></tr>";
     let cat = CATEGORIES.value;
     let req = `https://www.speedrun.com/api/v1/leaderboards/${theGame}/category/${cat}?&embed=players.user`;
     fetch(req)
@@ -129,18 +131,18 @@ function doThings() {
             return response.json();
         })
         .then(response => {
-            RESPONSE_DIV.innerHTML = RESPONSE_DIV.innerHTML.replace("<tr><td colspan=\"4\">Loading...</td></tr>", "");
+            RESPONSE_DIV.innerHTML = RESPONSE_DIV.innerHTML.replace("<tr><td colspan=\"5\">Loading...</td></tr>", "");
             displayThings(response);
         })
         .catch(status => {
-            RESPONSE_DIV.innerHTML = RESPONSE_DIV.innerHTML.replace("<tr><td colspan=\"4\">Loading...</td></tr>", "");
+            RESPONSE_DIV.innerHTML = RESPONSE_DIV.innerHTML.replace("<tr><td colspan=\"5\">Loading...</td></tr>", "");
             if (typeof(status) != "number") {
                 doThings();
             } else {
                 if (status == 420) {
-                    RESPONSE_DIV.innerHTML += "<tr><td colspan='4'>calm down pls 🥹</td></tr>";
+                    RESPONSE_DIV.innerHTML += "<tr><td colspan='5'>calm down pls 🥹</td></tr>";
                 } else {
-                    RESPONSE_DIV.innerHTML += "<tr><td colspan='4'>Either src bad or dev bad</td></tr>";
+                    RESPONSE_DIV.innerHTML += "<tr><td colspan='5'>Either src bad or dev bad</td></tr>";
                 }
             }
         });
